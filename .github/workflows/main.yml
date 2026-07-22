@@ -33,9 +33,15 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      # YEH NAYA STEP SARI ANDROID FILES KHUD RE-GENERATE KAR DEGA
+      # Project name explicitly valid set kar diya hai
       - name: Auto-generate Android files
-        run: flutter create . --platforms=android
+        run: flutter create . --platforms=android --project-name chronos_ai
+
+      # Fix compileSdk to 36 for sqflite compatibility
+      - name: Fix Android SDK version
+        run: |
+          sed -i 's/compileSdk = .*/compileSdk = 36/' android/app/build.gradle || true
+          sed -i 's/compileSdkVersion .*/compileSdkVersion 36/' android/app/build.gradle || true
 
       - name: Build APK
         run: flutter build apk --release --android-skip-build-dependency-validation
