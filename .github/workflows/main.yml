@@ -27,21 +27,19 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.0'
+          flutter-version: '3.19.6'
           channel: 'stable'
 
       - name: Install dependencies
         run: flutter pub get
 
-      # Project name explicitly valid set kar diya hai
       - name: Auto-generate Android files
         run: flutter create . --platforms=android --project-name chronos_ai
 
-      # Fix compileSdk to 36 for sqflite compatibility
-      - name: Fix Android SDK version
+      - name: Fix Android SDK & AGP
         run: |
-          sed -i 's/compileSdk = .*/compileSdk = 36/' android/app/build.gradle || true
-          sed -i 's/compileSdkVersion .*/compileSdkVersion 36/' android/app/build.gradle || true
+          sed -i 's/compileSdk = .*/compileSdk = 34/' android/app/build.gradle || true
+          sed -i 's/compileSdkVersion .*/compileSdkVersion 34/' android/app/build.gradle || true
 
       - name: Build APK
         run: flutter build apk --release --android-skip-build-dependency-validation
