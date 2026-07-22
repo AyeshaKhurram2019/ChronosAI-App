@@ -1,0 +1,31 @@
+name: chronos_ai
+description: "Smart AI Task Manager"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Local Storage & Database
+  sqflite: ^2.3.0
+  path: ^1.9.0
+
+  # Charts & Visuals
+  fl_chart: ^0.68.0
+
+  # Voice Processing
+  speech_to_text: ^7.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  
