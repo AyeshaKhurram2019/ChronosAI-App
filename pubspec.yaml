@@ -18,8 +18,8 @@ dependencies:
   # Charts & Visuals
   fl_chart: ^0.68.0
 
-  # Voice Processing
-  speech_to_text: ^7.0.0
+  # Voice Processing (Stable Version)
+  speech_to_text: ^6.6.2
 
 dev_dependencies:
   flutter_test:
