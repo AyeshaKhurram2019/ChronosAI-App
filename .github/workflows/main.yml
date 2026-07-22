@@ -33,6 +33,10 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      # YEH NAYA STEP SARI ANDROID FILES KHUD RE-GENERATE KAR DEGA
+      - name: Auto-generate Android files
+        run: flutter create . --platforms=android
+
       - name: Build APK
         run: flutter build apk --release --android-skip-build-dependency-validation
 
